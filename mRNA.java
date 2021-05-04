@@ -1,5 +1,6 @@
 public class mRNA{
 
+  // mGen() generates the corresponding MRNA sequence for a DNA sequence
   public static String mGen(String dSeq) {
     String mrna = "";
     for(int i = 0; i < dSeq.length(); i++){

@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class mutations{
 
+  // missense() tests if a sequence has a missense mutation (one switched base that leads to a different amino acid sequence)
   public static boolean missense(String og, String mut,String[] ogArr, String[] mutArr){
 
     int indX = changeIndFind(og, mut);
@@ -14,6 +15,7 @@ public class mutations{
     }
   }
 
+  // silent() tests if a sequence has a silent mutation (one switched base that leads to the same amino acid sequence)
   public static boolean silent(String og, String mut, String[] ogArr, String[] mutArr){
     if(!(og.equals(mut)) && (Arrays.equals(ogArr, mutArr))){
       return true;
@@ -24,18 +26,7 @@ public class mutations{
 
   }
 
-/*
-  public static boolean nonsense(String og, String mut, String[] ogArr, String[] mutArr){
-    if(!(Arrays.equals(ogArr, mutArr)) && (Arrays.asList(mutArr).contains("Stop"))){
-      return true;
-    }
-    else{
-      return false;
-    }
-
-  }
-*/
-
+  // nonsense() tests if a sequence has a nonsense mutation (one switched base that leads to a new stop codon in the amino acid sequence)
   public static boolean nonsense(String og, String mut, String[] ogArr, String[] mutArr){
     if((mutArr[indxInNewArr(changeIndFind(og,mut))]).equals("Stop")){
       return true;
@@ -46,6 +37,7 @@ public class mutations{
 
   }
 
+  // frameshift() tests if a sequence has a frameshift mutation (one inserted or removed base from the DNA sequence)
   public static boolean frameshift(String og, String mut){
 
     int changeIndx = changeIndFind(og, mut);
@@ -62,6 +54,7 @@ public class mutations{
 
   }
 
+  // indxInNewArr(), using the index of a codon that appears in a DNA sequence, determines the index of the amino acid it corresponds to an acid array 
   public static int indxInNewArr(int indx){
     int newIndex = 0;
     if (indx % 3 == 0){
@@ -76,6 +69,7 @@ public class mutations{
   return newIndex;
   }
 
+  // changeIndFind() finds the index at which two DNA sequences differ, that is the index at which the mutation occurs
   public static int changeIndFind(String og, String mut){
     int indX = 0;
     for(int i = 0; i < og.length(); i++){

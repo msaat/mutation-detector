@@ -1,5 +1,6 @@
 public class aaGen{
 
+  // amAnGen() determines what amino acid corresponds to an inputted codon 
   public static String amAcGen(String codon) {
     String acid = "";
     if (codon.charAt(0) == 'U')
@@ -137,14 +138,12 @@ public class aaGen{
       acid = "Glycine";
         }
     }
-    //else {
-    //  acid = "Not a valid codon";
-    //}
 
     return acid;
     
   }
 
+  // acidSeq() generates an array of amino acids based on the codons of a given mrna sequence
   public static String[] acidSeq(String mrna){
     String[] acidArray = new String[(mrna.length())/3];
     int indX = 0;
@@ -155,6 +154,7 @@ public class aaGen{
     return acidArray;
   }
 
+  // validBases() determines is a string of DNA only has valid bases (T, G, C, and A)
   public static boolean validBases(String dna){
 
     Boolean result = true;
@@ -170,21 +170,6 @@ public class aaGen{
     }
     return result;
   }
-
-
-
-
-/*
-  public static String[] codonSeq(String mrna){
-    String[] codonArray = new String[(mrna.length())/3];
-    int indX = 0;
-    for(int i = 0; i < mrna.length(); i = i+3){
-      codonArray[indX] = mrna.substring(i,i+3);
-      indX++;
-    }
-    return codonArray;
-  }
-*/
 
 
 }
